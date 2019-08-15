@@ -158,7 +158,7 @@
                 let formCadastro = document.querySelector("#formCadastro");
                 if(formCadastro.checkValidity()){
                     e.preventDefault();
-                    $.ajax9({
+                    $.ajax({
                         url: 'recebe.php',
                         method: 'post',
                         data: $('#formCadastro').serialize()+'&action=cadastro',
