@@ -1,3 +1,9 @@
+    <?php
+        session_start();
+        if(isset($_SESSION['nomeUsuario']))
+        //bloqueando usuarios logados
+        header("location: profile.php");
+    ?>
     <!DOCTYPE html>
     <html lang="pt-br">
 
@@ -149,6 +155,10 @@
                             success: function(resposta) {
                                 $('#alerta').show();
                                 $('#resultado').html(resposta);
+                                if (resposta == "ok") {
+                                    //Redirecinamento
+                                    window.location = "profile.php";
+                                }
                             }
                         });
                     }
@@ -172,19 +182,15 @@
                 //Formulário para mudar de senha
                 $('#btnEnviarEmail').click(function(e) {
                     let formSenha = document.querySelector('#formSenha');
-                    if(formSenha.checkValidity()){
-                        e.preventDefault();
+                    if (formSenha.checkValidity()) {
+                        e.preventDefault(); //Não recarregar a página
                         $.ajax({
                             url: 'recebe.php',
                             method: 'post',
-                            data: $('#formSenha').serialize()+'&action=senha',
-                            success: function(resposta){
+                            data: $('#formSenha').serialize() + '&action=senha',
+                            success: function(resposta) {
                                 $('#alerta').show();
                                 $('#resultado').html(resposta);
-                                if(resposta == "OK"){
-                                    window.location = "profile.php";
-                                }
-
                             }
                         });
                     }
