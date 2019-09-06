@@ -1,7 +1,8 @@
 <?php
-//protegendo profile.php só para usuarios lagados
+//Protegendo profile.php só para usuários logados
 require_once 'session.php';
 ?>
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -19,7 +20,7 @@ require_once 'session.php';
 <body class="bg-dark">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Gussano Systems</a>
+        <a class="navbar-brand" href="#">TNX Systems</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,17 +30,17 @@ require_once 'session.php';
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Link 1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#">Link 2</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $usuario ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Configuraçãoes</a>
+                        <a class="dropdown-item" href="#">Configurações</a>
                         <a class="dropdown-item" href="sair.php">Sair</a>
                         <a class="dropdown-item" href="#">Link 3</a>
                     </div>
@@ -49,10 +50,19 @@ require_once 'session.php';
     </nav>
 
     <main class="container mt-4">
-        <h1 class="text-light">perfil de usuário</h1>
-        <h1 class="text-light">Nome: <?= $nome ?></h1>
-        <h2 class="text-light"> E-mail: <?= $email ?></h2>
-        <h2 class="text-light"> Data de cadastro : <?= $dataCriacao ?> </h2>
+
+        <div class="row">
+            <div class="offset-lg-2 col-3">
+                <img src="<?= $urlAvatar ?>" alt="Foto de <?= $usuario ?>" height="200" width="200" />
+            </div>
+
+            <div class="col-7">
+                <h1 class="text-light">Perfil de usuário</h1>
+                <h2 class="text-light">Nome: <?= $nome ?></h2>
+                <h2 class="text-light">E-mail: <?= $email ?></h2>
+                <h2 class="text-light">Data de Cadastro: <?= $dataCriacao ?></h2>
+            </div>
+        </div>
     </main>
 
     <!-- Optional JavaScript -->

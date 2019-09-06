@@ -11,19 +11,22 @@ function verificar_entrada($entrada)
     return $saida;
 }
 if (
-    isset($_POST['action']) && $_POST['action'] == 'login') {
+    isset($_POST['action']) &&
+    $_POST['action'] == 'login'
+) {
     //Verificação e Login do usuário
     $nomeUsuario = verificar_entrada($_POST['nomeUsuario']);
     $senhaUsuario = verificar_entrada($_POST['senhaUsuario']);
     $senha = sha1($senhaUsuario);
     //Para teste
     //echo "<br>Usuário: $nomeUsuario <br> senha: $senha";
-    $sql = $conecta->prepare("SELECT * FROM usuario WHERE nomeUsuario = ? AND senha = ?");
+    $sql = $conecta->prepare("SELECT * FROM usuario WHERE 
+        nomeUsuario = ? AND senha = ?");
     $sql->bind_param("ss", $nomeUsuario, $senha);
     $sql->execute();
     $busca = $sql->fetch();
     if ($busca != null) {
-        //colocando o nome do usuario na sessão
+        //Colocando o nome do usuário na Sessão
         $_SESSION['nomeUsuario'] = $nomeUsuario;
         echo "ok";
     } else {
@@ -40,7 +43,8 @@ if (
     $emailUsuario = verificar_entrada($_POST['emailUsuário']);
     $senhaUsuario = verificar_entrada($_POST['senhaUsuário']);
     $senhaConfirma = verificar_entrada($_POST['senhaConfirma']);
-    $concordar = $_POST['concordar'];
+    $urlAvatar = verificar_entrada($_POST['urlAvatar']);
+    //$concordar = $_POST['concordar'];
     $dataCriacao = date("Y-m-d H:i:s");
 
     //Hash de senha / Codificação de senha em 40 caracteres
@@ -65,15 +69,17 @@ if (
             echo "<p>E-mail já em uso, tente outro</p>";
         } else { //Cadastro de usuário
             $sql = $conecta->prepare("INSERT into usuario 
-            (nome, nomeUsuario, email, senha, dataCriacao) 
-            values(?, ?, ?, ?, ?)");
+            (nome, nomeUsuario, email, senha, dataCriacao, 
+            avatar_url) 
+            values(?, ?, ?, ?, ?, ?)");
             $sql->bind_param(
-                "sssss",
+                "ssssss",
                 $nomeCompleto,
                 $nomeUsuario,
                 $emailUsuario,
                 $senha,
-                $dataCriacao
+                $dataCriacao,
+                $urlAvatar
             );
             if ($sql->execute()) {
                 echo "<p>Registrado com sucesso</p>";
