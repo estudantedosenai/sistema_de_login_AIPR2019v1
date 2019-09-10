@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 if (isset($_SESSION['nomeUsuario']))
     //Bloqueando usuários logados    
@@ -15,7 +16,7 @@ if (isset($_SESSION['nomeUsuario']))
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
     <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
-    <title>Sistema de Login Sistemas TNX</title>
+    <title>Sistema de Login Sistemas GuSsaNo</title>
     <style>
         #caixaCadastro,
         #caixaRecuperarSenha,
@@ -44,16 +45,25 @@ if (isset($_SESSION['nomeUsuario']))
                 <form id="formLogin" class="p-2">
 
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome do usuário" minlength="5" required>
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome do usuário" minlength="5" required value="<?php
+                                                                                                                                                                if (isset($_COOKIE['nomeUsuario']))
+                                                                                                                                                                    echo $_COOKIE['nomeUsuario'];
+                                                                                                                                                                    ?>">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha" required minlength="6">
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha" required minlength="6" value="<?php
+                                                                                                                                                            if (isset($_COOKIE['senhaUsuario']))
+                                                                                                                                                                echo $_COOKIE['senhaUsuario'];
+                                                                                                                                                            ?>">
                     </div>
 
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input">
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input" value="<?php
+                                                                                                                    if (isset($_COOKIE['nomeUsuario']))
+                                                                                                                        echo "checked";
+                                                                                                                        ?>">
 
                             <label for="lembrar" class="custom-control-label">
                                 Lembrar de mim.
@@ -176,6 +186,7 @@ if (isset($_SESSION['nomeUsuario']))
         /* jQuery */
         $(function() {
             //Front-end
+
             //Preparação dos dados para envio para o back-end
             //Envio dos dados do formulário de login
             $('#btnEntrar').click(function(e) {
@@ -197,6 +208,7 @@ if (isset($_SESSION['nomeUsuario']))
                     });
                 }
             });
+
             //Formulário de Cadastro de usuário
             $('#btnRegistrar').click(function(e) {
                 let formCadastro = document.querySelector("#formCadastro");
@@ -213,6 +225,7 @@ if (isset($_SESSION['nomeUsuario']))
                     });
                 }
             });
+
             //Formulário para mudar de senha
             $('#btnEnviarEmail').click(function(e) {
                 let formSenha = document.querySelector('#formSenha');
@@ -229,32 +242,43 @@ if (isset($_SESSION['nomeUsuario']))
                     });
                 }
             });
+
+
+
+
             //Trocar da Tela de Login para Recuperar Senha
             $("#btnEsqueci").click(function() {
                 $("#caixaLogin").hide();
                 $("#caixaRecuperarSenha").show();
             });
+
             //Voltar para a tela de Login
             $("#btnVoltar").click(function() {
                 $("#caixaLogin").show();
                 $("#caixaRecuperarSenha").hide();
             });
+
             //Trocar de tela de Login para cadastro de usuário
             $('#btnCadastrar').click(function() {
                 $("#caixaLogin").hide();
                 $("#caixaCadastro").show();
             });
+
             //Voltar para a tela de Login
             $('#btnJáCadastrado').click(function() {
                 $("#caixaLogin").show(); //mostrar
                 $("#caixaCadastro").hide(); //ocultar
             });
+
             //jQuery Validation chão chão
             $("#formLogin").validate();
             $("#formSenha").validate();
+
             $.validator.setDefaults({
                 success: "valid"
             });
+
+
             $("#formCadastro").validate({
                 rules: {
                     senhaConfirma: {
@@ -262,7 +286,10 @@ if (isset($_SESSION['nomeUsuario']))
                     }
                 }
             });
+
+
         });
+
         /*
          * Translated default messages for the jQuery validation plugin.
          * Locale: PT_BR

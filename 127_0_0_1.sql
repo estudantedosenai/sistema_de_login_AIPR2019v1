@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Set-2019 às 16:46
+-- Tempo de geração: 06-Set-2019 às 16:44
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.3.7
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sistemadelogin`
 --
+DROP DATABASE IF EXISTS `sistemadelogin`;
 CREATE DATABASE IF NOT EXISTS `sistemadelogin` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 USE `sistemadelogin`;
 
@@ -37,7 +38,7 @@ CREATE TABLE `usuario` (
   `email` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `senha` char(40) COLLATE utf8mb4_bin NOT NULL,
   `dataCriacao` datetime NOT NULL,
-  `avatar_url` varchar(200) COLLATE utf8mb4_bin NOT NULL
+  `avatar_url` varchar(220) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
@@ -45,8 +46,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `nome`, `nomeUsuario`, `email`, `senha`, `dataCriacao`, `avatar_url`) VALUES
-(1, 'morcego', 'morge xd', 'morge@GMAIL.COM', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 13:28:49', ''),
-(2, 'bruno', 'maiconkuster', 'kokoko@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 13:42:21', '');
+(1, 'Dinossauro Rexnux', 'dinonux', 'dinonux@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 16:07:23', 'https://tarcnux.files.wordpress.com/2011/12/tarcnux_dez_2011_com_a_cabec3a7a_nas_nuvens.jpg'),
+(2, 'Topo Gigio', 'topogigio', 'gigio@bol.com.br', '7c4a8d09ca3762af61e59520943dc26494f8941b', '2019-09-06 16:23:38', 'https://3.bp.blogspot.com/_d-lesN9Fpho/TFIazIlq5VI/AAAAAAAAABs/3YxA0Zns9Wc/w1200-h630-p-k-no-nu/topo_gigio_08.jpg');
 
 --
 -- Índices para tabelas despejadas
