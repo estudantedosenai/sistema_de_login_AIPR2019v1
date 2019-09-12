@@ -16,7 +16,7 @@ if (isset($_SESSION['nomeUsuario']))
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
     <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
-    <title>Sistema de Login Sistemas GuSsaNo</title>
+    <title>Sistema de Login Sistemas TNX</title>
     <style>
         #caixaCadastro,
         #caixaRecuperarSenha,
@@ -45,25 +45,35 @@ if (isset($_SESSION['nomeUsuario']))
                 <form id="formLogin" class="p-2">
 
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="Nome do usuário" minlength="5" required value="<?php
-                                                                                                                                                                if (isset($_COOKIE['nomeUsuario']))
-                                                                                                                                                                    echo $_COOKIE['nomeUsuario'];
-                                                                                                                                                                    ?>">
+                        <input type="text" name="nomeUsuario" 
+                        id="nomeUsuario" class="form-control" 
+                        placeholder="Nome do usuário" 
+                        minlength="5" required 
+                        value="<?php 
+                        if(isset($_COOKIE['nomeUsuario']))  
+                            echo $_COOKIE['nomeUsuario'];
+                        ?>">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" class="form-control" placeholder="Senha" required minlength="6" value="<?php
-                                                                                                                                                            if (isset($_COOKIE['senhaUsuario']))
-                                                                                                                                                                echo $_COOKIE['senhaUsuario'];
-                                                                                                                                                            ?>">
+                        <input type="password" name="senhaUsuario" 
+                        id="senhaUsuario" class="form-control" 
+                        placeholder="Senha" 
+                        required minlength="6"
+                        value="<?php 
+                        if(isset($_COOKIE['senhaUsuario']))  
+                            echo $_COOKIE['senhaUsuario'];
+                        ?>">
                     </div>
 
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input" value="<?php
-                                                                                                                    if (isset($_COOKIE['nomeUsuario']))
-                                                                                                                        echo "checked";
-                                                                                                                        ?>">
+                            <input type="checkbox" 
+                            name="lembrar" id="lembrar" 
+                            class="custom-control-input" <?php 
+                            if(isset($_COOKIE['nomeUsuario']))  
+                                echo " checked";
+                            ?>>
 
                             <label for="lembrar" class="custom-control-label">
                                 Lembrar de mim.
@@ -107,7 +117,9 @@ if (isset($_SESSION['nomeUsuario']))
                     </div>
 
                     <div class="form-group">
-                        <input type="url" name="urlAvatar" id="urlAvatar" class="form-control" placeholder="URL para imagem do seu perfil" required>
+                        <input type="url" name="urlAvatar" id="urlAvatar" 
+                        class="form-control" 
+                        placeholder="URL para imagem do seu perfil" required>
                     </div>
 
                     <div class="form-group">
