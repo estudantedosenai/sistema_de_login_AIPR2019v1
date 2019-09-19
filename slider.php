@@ -53,27 +53,28 @@ require_once 'session.php';
                     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="images/darius.jpg" class="d-block w-100" alt="...">
+                        <img src="images/darius2.gif" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>  | R E I | D E U S | D A R I U S |</h5>
-                            <p>Pela caçada ...</p>
+                            <h5>| R E I | D E U S | D A R I U S |</h5>
+                            <p>Pela casada !</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="images/pyke.jpg" class="d-block w-100" alt="...">
+                        <img src="images/pyke22.gif" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>| P Y K E | P R O J E T O |</h5>
-                            <p>A vida senpre cobra ...</p>
+                            <h5>| P Y K E |  P R O J E T O |</h5>
+                            <p> A vida senpre cobra !</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="images/yasou.jpg" class="d-block w-100" alt="...">
+                        <img src="images/yasou32.gif" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5> | Y A S U O | E M I S A R I O  | D A | E S C U R I D Ã O |</h5>
-                            <p>A escuridão vencera !</p>
+                            <h5> | Y A S U O |</h5>
+                            <p> Uma espada nunca é uma boa conpani !</p>
                         </div>
                     </div>
                 </div>
